@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Playtime with Azra & Frida</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #f2d6ca;
+            color: #2d4a46;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - uses their image */
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero img {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 90%;
+        }
+
+        .hero-subtitle {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #3d6b63;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.5);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Paw print divider */
+        .paw-divider {
+            text-align: center;
+            font-size: 1.4rem;
+            letter-spacing: 12px;
+            padding: 24px 0;
+            opacity: 0.4;
+        }
+
+        /* Free play callout */
+        .free-callout {
+            background: #faf6ee;
+            border: 3px dashed #6b9e8a;
+            border-radius: 20px;
+            padding: 20px 24px;
+            text-align: center;
+            margin: 0 auto 30px;
+            max-width: 500px;
+        }
+
+        .free-callout .emoji {
+            font-size: 2rem;
+        }
+
+        .free-callout p {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #3d6b63;
+            margin-top: 6px;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 28px;
+            color: #3d6b63;
+        }
+
+        /* Services */
+        .services-section {
+            padding: 10px 0 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .service-card {
+            background: #faf6ee;
+            border-radius: 18px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid rgba(107, 158, 138, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-color: #6b9e8a;
+        }
+
+        .service-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3d6b63;
+            margin-bottom: 8px;
+        }
+
+        .service-card .price {
+            display: inline-block;
+            background: #6b9e8a;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 4px 18px;
+            border-radius: 50px;
+        }
+
+        .service-card .desc {
+            font-size: 0.88rem;
+            color: #7a9590;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* About */
+        .about-section {
+            background: #faf6ee;
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            margin: 10px 0 30px;
+            border: 2px solid rgba(107, 158, 138, 0.2);
+        }
+
+        .about-section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.7rem;
+            color: #3d6b63;
+            margin-bottom: 14px;
+        }
+
+        .about-section p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #5a7d77;
+            max-width: 550px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .about-avatars {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
+
+        /* Location badge */
+        .location-badge {
+            display: inline-block;
+            background: #faf6ee;
+            color: #3d6b63;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 8px;
+            border: 2px solid rgba(107, 158, 138, 0.3);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 10px 20px 50px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.7rem;
+            color: #3d6b63;
+            margin-bottom: 8px;
+        }
+
+        .cta-section p {
+            color: #7a9590;
+            margin-bottom: 22px;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #faf6ee;
+            color: #3d6b63;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid #6b9e8a;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            background: #6b9e8a;
+            color: white;
+        }
+
+        .cta-sub {
+            margin-top: 14px;
+            font-size: 0.95rem;
+            color: #9ab3ad;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #c4a498;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Floating paw prints background */
+        .paw-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .paw-bg span {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.12;
+            animation: floatUp 22s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        .content-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 600px) {
+            .hero-subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .cta-button { font-size: 1.15rem; padding: 14px 32px; }
+            .about-section { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating paw prints -->
+<div class="paw-bg" id="pawBg"></div>
+
+<div class="content-wrap">
+
+    <!-- Hero Image -->
+    <div class="hero">
+        <img src="hero.png" alt="Animal Play Time - fun with pets!">
+        <div class="hero-overlay">
+            <p class="hero-subtitle">with Azra & Frida</p>
+            <div class="location-badge">Harrisonburg & Rockingham County</div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="paw-divider">🐾 🐾 🐾 🐾 🐾</div>
+
+        <!-- Free play callout -->
+        <div class="free-callout">
+            <div class="emoji">🐕 🐈 🐢 🦜</div>
+            <p>We will also play with your animal for FREE!</p>
+        </div>
+
+        <!-- Services -->
+        <section class="services-section">
+            <h2 class="section-title">What do you want us to do?</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🎓</div>
+                    <h3>Training</h3>
+                    <div class="price">$2</div>
+                    <p class="desc">We'll teach your pet cool tricks!</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🏊</div>
+                    <h3>Dog Pool Fun</h3>
+                    <div class="price">50&cent;</div>
+                    <p class="desc">Splish splash pool time!</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🏃‍♀️</div>
+                    <h3>Fun Exercise &mdash; Short</h3>
+                    <div class="price">$1</div>
+                    <p class="desc">A quick run around the yard</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🏅</div>
+                    <h3>Fun Exercise &mdash; Long</h3>
+                    <div class="price">$1</div>
+                    <p class="desc">A longer adventure walk</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🚗</div>
+                    <h3>Ride in the Car</h3>
+                    <div class="price">$1</div>
+                    <p class="desc">Fresh air & a fun car ride!</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🥏</div>
+                    <h3>Frisbee & Running Games</h3>
+                    <div class="price">$1</div>
+                    <p class="desc">Fetch, frisbee & all the fun!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="paw-divider">🐾 🐾 🐾 🐾 🐾</div>
+
+        <!-- About -->
+        <section class="about-section">
+            <div class="about-avatars">👧🏻 👧🏻</div>
+            <h2>Meet Azra & Frida!</h2>
+            <p>
+                We LOVE animals and want to make sure your furry friends
+                have the best time ever! Whether it's pool time, training,
+                frisbee, or just hanging out &mdash; we'll treat your pet like family.
+            </p>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Ready to book some playtime?</h2>
+            <p>Call or text to schedule your pet's fun day!</p>
+            <a href="tel:+15402828442" class="cta-button">📞 Call or Text Us!</a>
+            <p class="cta-sub">📱 (540) 282-8442 &mdash; Ask for Azra or Frida!</p>
+        </section>
+
+    </div>
+</div>
+
+<footer>
+    <div class="paw-divider">🐾 🐾 🐾 🐾 🐾</div>
+    &copy; 2026 Animal Playtime with Azra & Frida
+</footer>
+
+<script>
+    // Generate floating paw prints
+    const pawBg = document.getElementById('pawBg');
+    const items = ['🐾', '🩷', '🖤', '🐾', '🩷', '🦋', '🐢', '🦜'];
+    for (let i = 0; i < 35; i++) {
+        const span = document.createElement('span');
+        span.textContent = items[Math.floor(Math.random() * items.length)];
+        span.style.left = Math.random() * 100 + '%';
+        span.style.animationDuration = (16 + Math.random() * 18) + 's';
+        span.style.animationDelay = Math.random() * 20 + 's';
+        span.style.fontSize = (1 + Math.random() * 1.8) + 'rem';
+        pawBg.appendChild(span);
+    }
+</script>
+
+</body>
+</html>
